@@ -1,0 +1,26 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: |-
+    ## Overview
+    This API provides functionality for managing pull requests and automatically assigning random reviewers from teams.
+
+    ### Key Features:
+    - Create and manage pull requests
+    - Automatically assign 2 random reviewers from team members
+    - Manage team structures and user assignments
+    - Track pull request status and merge operations
+
+    ### Authentication
+    This API uses JWT Bearer token authentication. Admin tokens have elevated privileges.
+  title: PR Review Assignment API
+  version: "1.0"
+paths: {}
+securityDefinitions:
+  BearerAuth:
+    description: Type "Bearer" followed by a space and JWT token.
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
