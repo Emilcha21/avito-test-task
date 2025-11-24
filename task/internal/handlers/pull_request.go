@@ -7,19 +7,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//	@Summary      Create Pull Request
-//	@Description  Create a new pull request. Requires admin authorization
-//	@Tags         Pull request
-//	@Accept       json
-//	@Produce      json
-//	@Param        request    body     dto.CreatePullRequestReq  true  "request body with all required fields"
-//	@Success      201  {array}   dto.CreatePullRequestResp
-//	@Failure      400  {object}  dto.ErrorResponse
-//	@Failure      404  {object}  dto.ErrorResponse
-//	@Failure      500  {object}  dto.ErrorResponse
-//	@Router       /pullRequest/create [post]
-//  @Security 	  BearerAuth
-
+//		@Summary      Create Pull Request
+//		@Description  Create a new pull request. Requires admin authorization
+//		@Tags         Pull Requests
+//		@Accept       json
+//		@Produce      json
+//		@Param        request    body     dto.CreatePullRequestReq  true  "Pull request creation data"
+//		@Success      201  {object}   dto.CreatePullRequestResp
+//		@Failure      400  {object}  dto.ErrorResponse
+//		@Failure      401  {object}  dto.ErrorResponse
+//		@Failure      404  {object}  dto.ErrorResponse
+//		@Failure      500  {object}  dto.ErrorResponse
+//		@Router       /pullRequest/create [post]
+//	 	@Security 	  BearerAuth
 func (h *Handler) CreatePullRequest(c *gin.Context) {
 	var req dto.CreatePullRequestReq
 	err := c.ShouldBindJSON(&req)
@@ -43,19 +43,19 @@ func (h *Handler) CreatePullRequest(c *gin.Context) {
 	}})
 }
 
-//	@Summary      Merge Pull Request
-//	@Description  Update pull request status to MERGED. Requires admin authorization
-//	@Tags         Pull request
-//	@Accept       json
-//	@Produce      json
-//	@Param        request    body     dto.SetMergeStatusReq  true  "request body with all required fields"
-//	@Success      200  {array}   dto.PullRequestResp
-//	@Failure      400  {object}  dto.ErrorResponse
-//	@Failure      404  {object}  dto.ErrorResponse
-//	@Failure      500  {object}  dto.ErrorResponse
-//	@Router       /pullRequest/merge [patch]
-//  @Security 	  BearerAuth
-
+//		@Summary      Merge Pull Request
+//		@Description  Update pull request status to MERGED. Requires admin authorization
+//		@Tags         Pull Requests
+//		@Accept       json
+//		@Produce      json
+//		@Param        request    body     dto.SetMergeStatusReq  true  "Merge status update data"
+//		@Success      200  {object}   dto.PullRequestResp
+//		@Failure      400  {object}  dto.ErrorResponse
+//		@Failure      401  {object}  dto.ErrorResponse
+//		@Failure      404  {object}  dto.ErrorResponse
+//		@Failure      500  {object}  dto.ErrorResponse
+//		@Router       /pullRequest/merge [patch]
+//	 	@Security 	  BearerAuth
 func (h *Handler) SetMergeStatus(c *gin.Context) {
 	var req dto.SetMergeStatusReq
 	err := c.ShouldBindJSON(&req)
@@ -80,20 +80,20 @@ func (h *Handler) SetMergeStatus(c *gin.Context) {
 	}})
 }
 
-//  @Summary      Reassign Reviewer
-//	@Description  Reassign pull request reviewer to another user. Requires admin authorization
-//	@Tags         Pull request
-//	@Accept       json
-//	@Produce      json
-//	@Param        request    body     dto.ReassignReviewerReq  true  "request body with all required fields"
-//	@Success      200  {array}   dto.ReassignReviewerResp
-//	@Failure      400  {object}  dto.ErrorResponse
-//	@Failure      404  {object}  dto.ErrorResponse
-//	@Failure      409  {object}  dto.ErrorResponse
-//	@Failure      500  {object}  dto.ErrorResponse
-//	@Router       /pullRequest/reassign [post]
-//  @Security 	  BearerAuth
-
+//	 	@Summary      Reassign Reviewer
+//		@Description  Reassign pull request reviewer to another user. Requires admin authorization
+//		@Tags         Pull Requests
+//		@Accept       json
+//		@Produce      json
+//		@Param        request    body     dto.ReassignReviewerReq  true  "Reviewer reassignment data"
+//		@Success      200  {object}   dto.ReassignReviewerResp
+//		@Failure      400  {object}  dto.ErrorResponse
+//		@Failure      401  {object}  dto.ErrorResponse
+//		@Failure      404  {object}  dto.ErrorResponse
+//		@Failure      409  {object}  dto.ErrorResponse
+//		@Failure      500  {object}  dto.ErrorResponse
+//		@Router       /pullRequest/reassign [post]
+//	 	@Security 	  BearerAuth
 func (h *Handler) ReassignReviewer(c *gin.Context) {
 	var req dto.ReassignReviewerReq
 	err := c.ShouldBindJSON(&req)

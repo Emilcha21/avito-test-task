@@ -9,19 +9,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//	@Summary      Update User Activity Status
-//	@Description  Update user's active/inactive status. Requires authorization
-//	@Tags         User
-//	@Accept       json
-//	@Produce      json
-//  @Param        required    body     dto.UserSetActiveReq  true  "json body to change active"
-//	@Success      200  {array}   dto.UserResponse
-//	@Failure      400  {object}  dto.ErrorResponse
-//	@Failure      404  {object}  dto.ErrorResponse
-//	@Failure      500  {object}  dto.ErrorResponse
-//	@Router       /users/setIsActive [patch]
-//	@Security 	  BearerAuth
-
+//		@Summary      Update User Activity Status
+//		@Description  Update user's active/inactive status. Requires authorization
+//		@Tags         Users
+//		@Accept       json
+//		@Produce      json
+//	 	@Param        request    body     dto.UserSetActiveReq  true  "User activity status update data"
+//		@Success      200  {object}   dto.UserResponse
+//		@Failure      400  {object}  dto.ErrorResponse
+//		@Failure      401  {object}  dto.ErrorResponse
+//		@Failure      404  {object}  dto.ErrorResponse
+//		@Failure      500  {object}  dto.ErrorResponse
+//		@Router       /users/setIsActive [patch]
+//		@Security 	  BearerAuth
 func (h *Handler) SetIsActive(c *gin.Context) {
 	var req dto.UserSetActiveReq
 	err := c.ShouldBindJSON(&req)
@@ -49,17 +49,17 @@ func (h *Handler) SetIsActive(c *gin.Context) {
 
 //		@Summary      Get User's Pull Requests
 //		@Description  Retrieve all pull requests assigned to a specific user. Requires user or admin authorization
-//		@Tags         User
+//		@Tags         Users
 //		@Accept       json
 //		@Produce      json
-//	 	@Param        user_id    query     string  true  "query param user_id"
-//		@Success      200  {array}   dto.GetReviewResponse
+//		@Param        user_id    query     string  true  "User ID to fetch pull requests for"
+//		@Success      200  {object}   dto.GetReviewResponse
 //		@Failure      400  {object}  dto.ErrorResponse
+//		@Failure      401  {object}  dto.ErrorResponse
 //		@Failure      404  {object}  dto.ErrorResponse
 //		@Failure      500  {object}  dto.ErrorResponse
 //		@Router       /users/getReview [get]
-//	 	@Security 	  BearerAuth
-
+//		@Security 	  BearerAuth
 func (h *Handler) GetReview(c *gin.Context) {
 	userId := c.Query("user_id")
 	if userId == "" {

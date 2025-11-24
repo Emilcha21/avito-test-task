@@ -1,6 +1,9 @@
 package user
 
-import "avito-test/internal/models"
+import (
+	"avito-test/consts"
+	"avito-test/internal/models"
+)
 
 func (r *UserRepoSQL) GetUsersToPr(teamName string, authorId string) ([]string, error) {
 	var userIds []string
@@ -9,7 +12,7 @@ func (r *UserRepoSQL) GetUsersToPr(teamName string, authorId string) ([]string, 
 		Select("user_id").
 		Where("team_name = ? AND is_active = TRUE AND user_id != ?", teamName, authorId).
 		Order("RANDOM()").
-		Limit(2).
+		Limit(consts.Two).
 		Pluck("user_id", &userIds)
 
 	if result.Error != nil {

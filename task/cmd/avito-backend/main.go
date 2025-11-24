@@ -5,7 +5,7 @@ import (
 	"avito-test/internal/app"
 )
 
-// @title           PR Review Assignment API
+// @title           Avito-Test-Task API
 // @version         1.0
 // @description     ## Overview
 // @description     This API provides functionality for managing pull requests and automatically assigning random reviewers from teams.
@@ -21,12 +21,12 @@ import (
 
 // @host      localhost:8080
 // @BasePath  /
+// @schemes   http
 
 // @securityDefinitions.apikey BearerAuth
 // @in header
 // @name Authorization
 // @description Type "Bearer" followed by a space and JWT token.
-
 func main() {
 	app := app.NewApp()
 	app.Start()

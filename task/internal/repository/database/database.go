@@ -32,7 +32,8 @@ func InitDB(config config.Storage) (*gorm.DB, error) {
 		return nil, err
 	}
 
-	if err := sqlDB.Ping(); err != nil {
+	err = sqlDB.Ping(); 
+	if err != nil {
 		log.Fatal("Cannot connect to database", err)
 		return nil, err
 	}
